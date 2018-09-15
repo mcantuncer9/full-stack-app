@@ -23,6 +23,12 @@ app.get('/messages', (req, res) => {
   });
 });
 
+app.post('/deletemessages', (req, res) => {
+  messages.removeAll().then(() => {
+    console.log('All messages deleted!');
+  });
+});
+
 app.post('/messages', (req, res) => {
   console.log(req.body);
   messages.create(req.body).then((message) => {
