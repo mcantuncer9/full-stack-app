@@ -1,7 +1,7 @@
 <template>
   <div @submit.prevent="addMessage">
     <button @click="showMessageForm = !showMessageForm" type="button" class="btn btn-info mt-3">Toggle Message Form</button>
-    <form v-if="showMessageForm">
+    <form v-if="showMessageForm=true">
       <div class="form-group">
         <label for="username">Username</label>
         <input v-model="message.username" type="text" class="form-control" id="username">
@@ -50,7 +50,7 @@ export default {
       username: 'Anonymous',
       subject: '',
       message: '',
-      imageURL: '',
+      imageURL: 'http://www.kensap.org/wp-content/uploads/empty-photo.jpg',
     },
   }),
   mounted() {

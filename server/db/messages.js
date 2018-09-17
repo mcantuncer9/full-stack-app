@@ -23,11 +23,14 @@ function removeAll(){
 
 function create(message){
   if(!message.username)
-      message.username = 'Anonymous';
+    message.username = 'Anonymous';
+  if(message.imageURL = '')
+    message.imageURL = 'https://www.kensap.org/wp-content/uploads/empty-photo.jpg';
   const result = Joi.validate(message, schema);
   console.log(result);
   if(result.error == null){
     message.created = new Date();
+
     return messages.insert(message);
   }else {
     console.log('Error creating message.');
